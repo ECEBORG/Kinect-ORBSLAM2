@@ -29,7 +29,9 @@
 #include"Converter.h"
 #include"Map.h"
 #include"Initializer.h"
-
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include"Optimizer.h"
 #include"PnPsolver.h"
 
@@ -296,6 +298,7 @@ void Tracking::Track()
         // Initial camera pose estimation using motion model or relocalization (if tracking is lost)
         if(!mbOnlyTracking)
         {
+	
             // Local Mapping is activated. This is the normal behaviour, unless
             // you explicitly activate the "only tracking" mode.
 
@@ -1340,6 +1343,7 @@ void Tracking::UpdateLocalKeyFrames()
 
 bool Tracking::Relocalization()
 {
+    //std::cout <<  "Relocalization!" << std::endl ; // ZMO
     // Compute Bag of Words Vector
     mCurrentFrame.ComputeBoW();
 

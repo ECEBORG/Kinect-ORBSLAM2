@@ -22,6 +22,9 @@
 #include "LoopClosing.h"
 #include "ORBmatcher.h"
 #include "Optimizer.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include<mutex>
 

@@ -19,7 +19,9 @@
 */
 
 
-
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "System.h"
 #include "Converter.h"
 #include <thread>
@@ -470,6 +472,10 @@ void System::SaveTrajectoryKITTI(const string &filename)
     f.close();
     cout << endl << "trajectory saved!" << endl;
 }
+
+
+
+
 
 int System::GetTrackingState()
 {
