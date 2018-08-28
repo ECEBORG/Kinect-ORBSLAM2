@@ -418,6 +418,30 @@ void System::SaveKeyFrameTrajectoryTUM(const string &filename)
     cout << endl << "trajectory saved!" << endl;
 }
 
+void System::SaveMap(const string &filename)
+{
+ 
+    vector<MapPoint*> vMPs = mpMap->GetAllMapPoints();
+    
+    ofstream f;
+    f.open(filename.c_str());
+    f << fixed;
+
+    vector<MapPoint*>::iterator itvMps;
+    // Iterate over all points
+    for(itvMps = vMPs.begin(); itvMps != vMPs.end() ; itvMps++ )
+    {
+        MapPoint* mp = *itvMps;
+
+        cv::Mat pos = cv::Mat::eye(3,1,CV_32F);
+	pos = mp->GetWorldPos();
+	
+        f << pos.at<float>(0) << ", " << pos.at<float>(1)  << ", " << pos.at<float>(2) << endl;
+    }
+    f.close();
+}
+
+
 void System::SaveTrajectoryKITTI(const string &filename)
 {
     cout << endl << "Saving camera trajectory to " << filename << " ..." << endl;
@@ -472,8 +496,6 @@ void System::SaveTrajectoryKITTI(const string &filename)
     f.close();
     cout << endl << "trajectory saved!" << endl;
 }
-
-
 
 
 
