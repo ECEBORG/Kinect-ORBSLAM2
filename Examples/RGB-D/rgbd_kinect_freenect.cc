@@ -20,7 +20,7 @@
 */
 #include <libusb-1.0/libusb.h>
 #include <libfreenect/libfreenect.hpp> // Re-written by Z.M.
-#include "rgbd_openrobotics.hpp"
+#include "rgbd_kinect_freenect.hpp"
 #include<iostream>
 #include<algorithm>
 #include<fstream>
